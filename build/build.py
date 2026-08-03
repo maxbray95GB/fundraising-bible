@@ -63,7 +63,7 @@ replacement = (
 )
 html = html.replace(m.group(0), replacement)
 
-logo_tag = '<img class="kindred-logo" src="data:image/png;base64,' + logo_b64 + '" alt="Kindred">'
+logo_tag = '<a href="https://kindredcapital.vc" style="display:block"><img class="kindred-logo" src="data:image/png;base64,' + logo_b64 + '" alt="Kindred"></a>'
 wrappers = re.findall(r'<span style="overflow: hidden;[^"]*"><img[^>]*src="data:image/[^"]*"[^>]*></span>', html)
 assert len(wrappers) == 1, f'found {len(wrappers)} logo wrappers'
 html = html.replace(wrappers[0], logo_tag)
