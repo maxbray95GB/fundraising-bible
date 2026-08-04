@@ -71,7 +71,7 @@ html = html.replace(wrappers[0], logo_tag)
 
 # Closing sign-off: blank line then contact line
 signoff = (
-    '<p style="padding:0;margin:0;line-height:1.3"><span>&nbsp;</span></p>'
+    '<hr class="title-rule">'
     '<p style="padding:0;margin:0;line-height:1.3"><span style="color:#000000">'
     'Unanswered questions? Ideas? Comments? Email the Kindred team \U0001F4AA</span></p>'
 )
