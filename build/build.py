@@ -68,5 +68,16 @@ wrappers = re.findall(r'<span style="overflow: hidden;[^"]*"><img[^>]*src="data:
 assert len(wrappers) == 1, f'found {len(wrappers)} logo wrappers'
 html = html.replace(wrappers[0], logo_tag)
 
+
+# Closing sign-off: blank line then contact line
+signoff = (
+    '<p style="padding:0;margin:0;line-height:1.3"><span>&nbsp;</span></p>'
+    '<p style="padding:0;margin:0;line-height:1.3"><span style="color:#000000">'
+    'Unanswered questions? Ideas? Comments? Email the Kindred team \U0001F4AA</span></p>'
+)
+last_close = html.rfind('</body>')
+assert last_close != -1
+html = html[:last_close] + signoff + html[last_close:]
+
 (base / 'index_plain.html').write_text(html, encoding='utf-8')
 print('built: kindred_template_built.html and index_plain.html')
